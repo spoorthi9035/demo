@@ -26,7 +26,7 @@ public class DemoController {
 	@PostMapping(path = "/createRecord")
 	public ResponseEntity<String> uploadData(@ModelAttribute ModelClass model) {
 		demoRepository.save(model);
-				return ResponseEntity.ok("Survey data created successfully.");
+				return ResponseEntity.ok("Survey data has been created successfully.");
 	}
 
 	@GetMapping(path = "/deleteRecord/{id}")
