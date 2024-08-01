@@ -39,6 +39,9 @@ public class ModelClass {
     private String interested_in;
     @Column(name="likelihood")
     private String likelihood;
+	
+    @Column(name="comments")
+    private String comments;
 
     // Default constructor (required by JPA)
     public ModelClass() {
@@ -50,6 +53,14 @@ public class ModelClass {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
 	}
 
 	public String getFirst_name() {
