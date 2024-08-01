@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @CrossOrigin(origins = "http://localhost:8080")
@@ -26,7 +27,7 @@ public class DemoController {
     }
 
 	@PostMapping(path = "/createRecord")
-	public ResponseEntity<String> uploadData(@ModelAttribute ModelClass model) {
+	public ResponseEntity<String> uploadData(@RequestBody ModelClass model) {
 		demoRepository.save(model);
 				return ResponseEntity.ok("Survey data has been created successfully.");
 	}
@@ -50,7 +51,7 @@ public class DemoController {
 	}
 
 	@PostMapping(path = "/updateRecord/{id}")
-	public ResponseEntity<String> updateData(@PathVariable long id,@ModelAttribute ModelClass model1) {
+	public ResponseEntity<String> updateData(@PathVariable long id,@RequestBody ModelClass model1) {
 		ModelClass model = demoRepository.findById(id).orElse(null);
 				if(model!=null){
 					demoRepository.save(model1);
