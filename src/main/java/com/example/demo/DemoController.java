@@ -27,6 +27,7 @@ public class DemoController {
     }
 
 	@PostMapping(path = "/createRecord")
+	
 	public ResponseEntity<String> uploadData(@RequestBody ModelClass model) {
 		demoRepository.save(model);
 				return ResponseEntity.ok("Survey data has been created successfully.");
