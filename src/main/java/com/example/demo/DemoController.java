@@ -54,6 +54,7 @@ public class DemoController {
 	public ResponseEntity<String> updateData(@PathVariable long id,@RequestBody ModelClass model1) {
 		ModelClass model = demoRepository.findById(id).orElse(null);
 				if(model!=null){
+					model1.setId(id);
 					demoRepository.save(model1);
 		return ResponseEntity.ok("Survey data updated successfully.");
 				}
